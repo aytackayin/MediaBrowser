@@ -60,11 +60,11 @@ MediaBrowser şu an için Türkçe ve İngilizce dillerini desteklemektedir. JSO
 ## 🚀 Kurulum
 
 ### 📥 Hızlı Deneyim (İndirme Bağlantıları)
-Uygulamayı derlemeden doğrudan denemek isterseniz, [setups](setups/) klasöründeki hazır kurulum dosyalarını indirebilirsiniz:
+Uygulamayı derlemeden doğrudan denemek isterseniz, **[En Son Sürüm (Release)](https://github.com/aytackayin/MediaBrowser/releases/latest)** sayfasından hazır kurulum dosyalarını indirebilirsiniz:
 
-*   [**Portable Sürüm (.exe)**](setups/MediaBrowser_Portable.exe): Kurulum gerektirmez, doğrudan çalışır. Hızlıca denemek için en iyisidir.
-*   [**Standart Kurulum (.exe)**](setups/MediaBrowser_Setup.exe): Standart Windows yükleyicisidir.
-*   [**MSI Paketi (.msi)**](setups/MediaBrowser_Setup.msi): Kurumsal veya standart Windows yükleyici paketidir.
+*   [**Portable Sürüm (.exe)**](https://github.com/aytackayin/MediaBrowser/releases/download/v1.0.0/MediaBrowser_Portable.exe): Kurulum gerektirmez, doğrudan çalışır. Hızlıca denemek için en iyisidir.
+*   [**Standart Kurulum (.exe)**](https://github.com/aytackayin/MediaBrowser/releases/download/v1.0.0/MediaBrowser_Setup.exe): Standart Windows yükleyicisidir.
+*   [**MSI Paketi (.msi)**](https://github.com/aytackayin/MediaBrowser/releases/download/v1.0.0/MediaBrowser_Setup.msi): Kurumsal veya standart Windows yükleyici paketidir.
 
 ### 🔐 SHA256 Checksum
 İndirdiğiniz dosyaların güvenliğini ve bütünlüğünü aşağıdaki SHA256 anahtarlarıyla kontrol edebilirsiniz:

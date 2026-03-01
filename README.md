@@ -60,11 +60,11 @@ MediaBrowser currently supports Turkish and English. Thanks to the JSON-based `l
 ## 🚀 Installation
 
 ### 📥 Quick Try (Downloads)
-If you just want to try the application without building it, you can download the ready-to-use versions from the [setups](setups/) folder:
+If you just want to try the application without building it, you can download the ready-to-use versions from the **[Latest Release](https://github.com/aytackayin/MediaBrowser/releases/latest)**:
 
-*   [**Portable Version (.exe)**](setups/MediaBrowser_Portable.exe): Best for quick trial. No installation required. Runs directly.
-*   [**Setup Installer (.exe)**](setups/MediaBrowser_Setup.exe): Standard Windows installer.
-*   [**MSI Installer (.msi)**](setups/MediaBrowser_Setup.msi): Enterprise/Standard Windows installer package.
+*   [**Portable Version (.exe)**](https://github.com/aytackayin/MediaBrowser/releases/download/v1.0.0/MediaBrowser_Portable.exe): Best for quick trial. No installation required. Runs directly.
+*   [**Setup Installer (.exe)**](https://github.com/aytackayin/MediaBrowser/releases/download/v1.0.0/MediaBrowser_Setup.exe): Standard Windows installer.
+*   [**MSI Installer (.msi)**](https://github.com/aytackayin/MediaBrowser/releases/download/v1.0.0/MediaBrowser_Setup.msi): Enterprise/Standard Windows installer package.
 
 ### 🔐 SHA256 Checksum
 You can verify the integrity of the downloaded files using the following SHA256 hashes:
