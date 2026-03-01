@@ -1,0 +1,2151 @@
+/* ═══════════════════════════════════════════
+   VideoEditor - Premium NLE Design System
+   ═══════════════════════════════════════════ */
+
+/* ─── Root ─── */
+.video-editor {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    overflow: hidden;
+    user-select: none;
+    z-index: 1000;
+}
+
+.video-editor button:focus,
+.video-editor button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ─── Header ─── */
+.ve-header {
+    height: 48px;
+    background-color: #000;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ve-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 10;
+}
+
+.ve-header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+.ve-header-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 3px;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ve-tool-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ve-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #eee;
+}
+
+.ve-tool-btn:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.ve-tool-btn.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+}
+
+.ve-tool-divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 6px;
+}
+
+.ve-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.ve-editor-logo {
+    width: 32px;
+    height: 32px;
+    background: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a855f7;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.15);
+    flex-shrink: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.ve-editor-logo:hover {
+    background: rgba(168, 85, 247, 0.25);
+    border-color: rgba(168, 85, 247, 0.6);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
+}
+
+.ve-close-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border: none;
+}
+
+.ve-close-btn:hover {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.ve-header-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 4px;
+}
+
+.ve-file-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.ve-file-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ve-file-meta {
+    font-size: 0.6rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+}
+
+.ve-export-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ve-export-btn:hover {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    transform: translateY(-1px);
+    border-color: rgba(34, 197, 94, 0.3);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.1);
+}
+
+.ve-toggle-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.ve-toggle-btn:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.ve-toggle-btn.active {
+    color: var(--accent-blue);
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* ─── Workspace ─── */
+.ve-workspace {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background-color: #050505;
+}
+
+/* ─── Preview Section ─── */
+.ve-preview-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #0c0c0c;
+    background-image:
+        linear-gradient(45deg, #121212 25%, transparent 25%),
+        linear-gradient(-45deg, #121212 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #121212 75%),
+        linear-gradient(-45deg, transparent 75%, #121212 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.ve-preview-stage {
+    flex: 1;
+    position: relative;
+    overflow: visible;
+}
+
+.ve-preview-video {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.ve-preview-canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    border-radius: 2px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.ve-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    gap: 8px;
+}
+
+/* ─── Playback Bar ─── */
+.ve-playback-bar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    background-color: rgba(6, 6, 6, 0.96);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    flex-shrink: 0;
+}
+
+.ve-playback-left,
+.ve-playback-center,
+.ve-playback-right {
+    display: flex;
+    align-items: center;
+}
+
+.ve-playback-left {
+    min-width: 150px;
+}
+
+.ve-playback-center {
+    gap: 2px;
+}
+
+.ve-playback-right {
+    min-width: 150px;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.ve-time-display {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.ve-time-current {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.ve-time-separator {
+    color: var(--text-tertiary);
+    margin: 0 4px;
+}
+
+.ve-time-total {
+    color: var(--text-secondary);
+}
+
+.ve-pb-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.ve-pb-btn:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+}
+
+.ve-play-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 6px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.ve-play-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    transform: scale(1.05);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+.ve-play-icon-offset {
+    margin-left: 2px;
+}
+
+/* Volume */
+.ve-volume-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ve-volume-slider {
+    width: 64px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    accent-color: transparent;
+}
+
+.ve-volume-slider::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    transition: background 0.2s ease;
+}
+
+.ve-volume-slider:hover::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ve-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-top: -5.5px;
+}
+
+.ve-volume-slider:hover::-webkit-slider-thumb {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.ve-volume-slider:active::-webkit-slider-thumb {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    transform: scale(1.25);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.ve-volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+}
+
+.ve-volume-slider::-moz-range-track {
+    background: rgba(255, 255, 255, 0.1);
+    height: 3px;
+    border-radius: 2px;
+}
+
+.ve-volume-label {
+    min-width: 32px;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    text-align: right;
+    user-select: none;
+}
+
+/* ─── Properties Panel ─── */
+.ve-properties-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@keyframes ve-panel-in {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.ve-properties-header {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.ve-properties-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+}
+
+.ve-properties-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.ve-prop-section-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.ve-color-bal-group {
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.ve-color-bal-group-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+}
+
+/* Controls */
+.ve-ctrl-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+/* Compact Slider Variation */
+.ve-ctrl-group.is-slider {
+    display: grid;
+    grid-template-columns: 85px 1fr 44px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.ve-ctrl-group.is-slider .ve-ctrl-header {
+    display: contents;
+}
+
+.ve-ctrl-group.is-slider .ve-ctrl-label-container {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: hidden;
+}
+
+.ve-ctrl-group.is-slider .ve-ctrl-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.ve-ctrl-group.is-slider .ve-ctrl-slider {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+}
+
+.ve-ctrl-group.is-slider .ve-ctrl-input {
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    margin: 0;
+}
+
+.ve-ctrl-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ve-ctrl-label-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ve-ctrl-icon {
+    color: var(--text-tertiary);
+    opacity: 0.8;
+}
+
+.ve-ctrl-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.ve-ctrl-input {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-size: 0.65rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    width: 48px;
+    text-align: right;
+    padding: 2px 4px;
+    transition: all 0.2s ease;
+}
+
+.ve-ctrl-input:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.ve-ctrl-input:focus {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-blue);
+    color: white;
+    outline: none;
+}
+
+.ve-ctrl-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 14px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.ve-ctrl-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.ve-ctrl-slider:hover::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.ve-ctrl-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(4px);
+    margin-top: -5px;
+    /* Center perfectly on 4px track */
+}
+
+/* Firefox Thumb */
+.ve-ctrl-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(4px);
+}
+
+.ve-ctrl-slider:hover::-webkit-slider-thumb {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.ve-ctrl-slider:active::-webkit-slider-thumb {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    transform: scale(1.25);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.ve-ctrl-slider::-moz-range-track {
+    background: rgba(255, 255, 255, 0.08);
+    height: 4px;
+    border-radius: 4px;
+}
+
+
+/* ─── Properties Panel Helpers ─── */
+.ve-num-input {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    color: #eee;
+    outline: none;
+    transition: all 0.2s ease;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.ve-num-input::-webkit-outer-spin-button,
+.ve-num-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.ve-lock-btn {
+    height: 30px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ve-lock-btn:hover {
+    background: #252525;
+    color: #999;
+}
+
+.ve-lock-btn.active {
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(59, 130, 246, 0.15);
+}
+
+/* Scoped Colors for Panels */
+.ve-transform-panel.is-crop .ve-lock-btn.active {
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.4);
+    background: rgba(251, 191, 36, 0.15);
+}
+
+.ve-transform-panel.is-canvas .ve-lock-btn.active {
+    color: #a855f7;
+    border-color: rgba(168, 85, 247, 0.4);
+    background: rgba(168, 85, 247, 0.15);
+}
+
+.ve-aspect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.ve-aspect-btn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 0.7rem;
+    color: #888;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.ve-aspect-btn:hover {
+    background: #252525;
+    color: #eee;
+    border-color: #444;
+}
+
+.ve-aspect-btn.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.ve-transform-panel.is-crop .ve-aspect-btn.active {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.4);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.1);
+}
+
+.ve-transform-panel.is-canvas .ve-aspect-btn.active {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.1);
+}
+
+.ve-panel-divider {
+    margin: 20px 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #333, transparent);
+}
+
+.ve-reset-section {
+    margin-top: auto;
+}
+
+.ve-reset-btn {
+    width: 100%;
+    padding: 8px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 6px;
+    color: #ef4444;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.ve-reset-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.25);
+    color: #ef4444;
+    transform: translateY(-1px);
+}
+
+/* ─── Resize Handle ─── */
+.ve-resize-handle {
+    height: 6px;
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    cursor: ns-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 10;
+    transition: background-color 0.15s ease;
+}
+
+.ve-resize-handle:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+}
+
+.ve-resize-grip {
+    width: 28px;
+    height: 2px;
+    background-color: var(--border-color);
+    border-radius: 1px;
+    transition: background-color 0.15s ease;
+}
+
+.ve-resize-handle:hover .ve-resize-grip {
+    background-color: var(--accent-blue);
+}
+
+/* ─── Timeline ─── */
+.ve-timeline {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-secondary);
+    min-height: 0;
+    height: 100%;
+}
+
+.ve-timeline-toolbar {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.ve-tl-tools {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.ve-tl-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.ve-tl-btn:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.ve-tl-btn-split {
+    color: var(--accent-purple);
+}
+
+.ve-tl-btn-delete {
+    color: #ef4444;
+}
+
+.ve-tl-btn-add-video {
+    color: var(--accent-blue);
+}
+
+.ve-tl-btn-add-audio {
+    color: #fbbf24;
+}
+
+.ve-tl-divider {
+    width: 1px;
+    height: 18px;
+    background-color: var(--border-color);
+    margin: 0 4px;
+}
+
+.ve-tl-zoom {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ve-tl-zoom-label {
+    font-size: 0.6rem;
+    color: var(--text-tertiary);
+    min-width: 28px;
+    text-align: center;
+    font-family: monospace;
+}
+
+/* Timeline Content */
+.ve-timeline-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* Track Labels */
+.ve-track-labels {
+    width: 120px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    z-index: 5;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ve-label-spacer {
+    height: 28px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--bg-secondary);
+}
+
+.ve-track-label {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.ve-track-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: grab;
+    transition: background-color 0.2s;
+}
+
+.ve-track-icon:active {
+    cursor: grabbing;
+}
+
+.ve-track-icon.video {
+    background-color: rgba(59, 130, 246, 0.12);
+    color: var(--accent-blue);
+}
+
+.ve-track-icon.audio {
+    background-color: rgba(251, 191, 36, 0.12);
+    color: #fbbf24;
+}
+
+.ve-track-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ve-track-add-clip {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #22c55e;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    background: transparent;
+    border: none;
+}
+
+.ve-track-add-clip:hover {
+    background-color: rgba(34, 197, 94, 0.15);
+    transform: scale(1.1);
+}
+
+.ve-track-delete {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #ef4444;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.15s ease;
+    background: transparent;
+    border: none;
+}
+
+.ve-track-delete:hover {
+    opacity: 1;
+    background-color: rgba(239, 68, 68, 0.15);
+}
+
+/* Timeline Scroll */
+.ve-timeline-scroll {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: auto;
+    position: relative;
+    cursor: crosshair;
+}
+
+/* Ruler */
+.ve-ruler {
+    height: 34px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #060606;
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.ve-ruler-mark {
+    position: absolute;
+    bottom: 0;
+    width: 1px;
+    pointer-events: none;
+}
+
+.ve-ruler-mark.major {
+    height: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.ve-ruler-mark.mid {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.ve-ruler-mark.minor {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.ve-ruler-label {
+    position: absolute;
+    bottom: 18px;
+    left: 4px;
+    font-size: 10px;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    pointer-events: none;
+}
+
+/* Track Lanes */
+.ve-track-lane {
+    height: 56px;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.006);
+    transition: background-color 0.15s ease;
+}
+
+.ve-track-lane:hover {
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
+/* Clips */
+.ve-clip {
+    position: absolute;
+    top: 6px;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: grab;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ve-clip:active {
+    cursor: grabbing;
+}
+
+.ve-clip.video {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.16) 0%, rgba(59, 130, 246, 0.06) 100%);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+.ve-clip.audio {
+    background: linear-gradient(180deg, rgba(251, 191, 36, 0.16) 0%, rgba(251, 191, 36, 0.06) 100%);
+    border-color: rgba(251, 191, 36, 0.25);
+}
+
+.ve-clip.selected {
+    border-color: var(--accent-blue);
+    box-shadow:
+        0 0 0 1px rgba(59, 130, 246, 0.25),
+        0 2px 12px rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+.ve-clip-name {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: margin-left 0.15s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ve-clip.selected .ve-clip-name {
+    margin-left: 10px;
+}
+
+.ve-clip-visual-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ve-clip-thumb {
+    flex-shrink: 0;
+    height: 100%;
+    object-fit: cover;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0.8;
+}
+
+.ve-clip-waveform-img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    pointer-events: none;
+    image-rendering: pixelated;
+}
+
+/* Trim Handles */
+.ve-trim-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: ew-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.1s ease;
+}
+
+.ve-trim-handle.left {
+    left: 0;
+    border-radius: 5px 0 0 5px;
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+.ve-trim-handle.right {
+    right: 0;
+    border-radius: 0 5px 5px 0;
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+.ve-trim-handle:hover {
+    background-color: rgba(59, 130, 246, 0.45);
+}
+
+.ve-trim-grip {
+    width: 2px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 1px;
+}
+
+/* Playhead */
+.ve-playhead {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.ve-playhead-line {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 2px;
+    height: 100%;
+    background-color: #ef4444;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.25);
+    pointer-events: none;
+}
+
+.ve-playhead-head {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 20px;
+    height: 35px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    pointer-events: auto;
+    cursor: ew-resize;
+}
+
+.ve-playhead-head::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid #ef4444;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+    pointer-events: none;
+}
+
+/* ─── Custom Scrollbars ─── */
+.ve-timeline-scroll::-webkit-scrollbar {
+    height: 5px;
+}
+
+.ve-timeline-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ve-timeline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+}
+
+.ve-timeline-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.ve-properties-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.ve-properties-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ve-properties-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+}
+
+/* ─── History Panel ─── */
+.ve-history-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.ve-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ve-history-item {
+    padding: 6px 10px;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    border: 1px solid #2a2a2a;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.15s ease;
+}
+
+.ve-history-item:hover {
+    background-color: #252525;
+    border-color: #3a3a3a;
+    color: #ccc;
+}
+
+.ve-history-item.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    opacity: 1;
+}
+
+.ve-history-item.future {
+    opacity: 0.4;
+}
+
+.ve-history-time {
+    font-size: 9px;
+    opacity: 0.7;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* ─── Draggable Dock System ─── */
+.ve-panel-dock {
+    background-color: rgba(15, 15, 15, 0.85);
+    /* Slightly darker and more transparent */
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ve-panel-dock:hover {
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.ve-dock-handle {
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.ve-dock-handle:active {
+    cursor: grabbing;
+}
+
+.ve-dock-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 1.2px;
+    font-weight: 800;
+}
+
+.ve-dock-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.ve-dock-btn {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ve-dock-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.ve-dock-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+
+.ve-panel-dock.collapsed .ve-dock-content {
+    max-height: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.ve-history-panel {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    /* Limit height of history panel */
+    background: transparent;
+}
+
+.ve-history-header-flat {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.ve-history-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.ve-history-panel .ve-history-list {
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+/* Scrollbar for history list inside dock */
+.ve-history-panel .ve-history-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ve-history-panel .ve-history-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ve-history-panel .ve-history-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+/* ─── Video Crop Tool ─── */
+.ve-crop-overlay-box {
+    position: relative;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease;
+}
+
+.ve-crop-actions {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.ve-crop-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.ve-crop-actions .ve-crop-btn:hover {
+    transform: scale(1.15) translateY(-2px);
+}
+
+.ve-crop-btn.confirm {
+    background-color: rgba(34, 197, 94, 0.15) !important;
+    color: #22c55e !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+.ve-crop-btn.confirm:hover {
+    background-color: rgba(34, 197, 94, 0.25) !important;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+}
+
+.ve-crop-btn.cancel {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    color: #ef4444 !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.ve-crop-btn.cancel:hover {
+    background-color: rgba(239, 68, 68, 0.25) !important;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+.ve-crop-btn svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.ve-crop-dims-badge {
+    position: absolute;
+    top: -28px;
+    right: 0;
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', 'Inter', system-ui, sans-serif;
+    white-space: nowrap;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.ve-crop-dims-badge.crop {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.ve-crop-dims-badge.canvas {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.ve-crop-grid-h,
+.ve-crop-grid-v {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.ve-crop-grid-h::before,
+.ve-crop-grid-h::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.ve-crop-grid-h::before {
+    top: 33.33%;
+}
+
+.ve-crop-grid-h::after {
+    top: 66.66%;
+}
+
+.ve-crop-grid-v::before,
+.ve-crop-grid-v::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.ve-crop-grid-v::before {
+    left: 33.33%;
+}
+
+.ve-crop-grid-v::after {
+    left: 66.66%;
+}
+
+.ve-crop-handle {
+    transition: transform 0.15s ease, background-color 0.15s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.ve-crop-handle:hover {
+    transform: translate(-50%, -50%) scale(1.4) !important;
+    background-color: #fcd34d !important;
+}
+
+/* ═══════════════════════════════════════════
+   Save Modal Styles
+   ═══════════════════════════════════════════ */
+
+.ve-save-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.ve-save-modal-content {
+    width: 440px;
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.ve-save-modal-header {
+    padding: 20px 24px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ve-save-modal-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+}
+
+.modal-desc {
+    margin: 8px 0 0 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.modal-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ve-save-modal-footer {
+    padding: 20px 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.prop-section {
+    margin-bottom: 16px;
+}
+
+.prop-section:last-child {
+    margin-bottom: 0;
+}
+
+.prop-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.prop-input {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.prop-input:focus {
+    border-color: rgba(59, 130, 246, 0.4);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.path-selector-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.path-display-input {
+    flex: 1;
+    cursor: default;
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.path-browse-btn {
+    width: 44px;
+    height: 44px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 12px;
+    color: #ef4444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.path-browse-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    transform: translateY(-1px);
+}
+
+.format-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.format-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.format-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.format-btn.mp4.active {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+}
+
+.format-btn.webm.active {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.4);
+    color: #a855f7;
+}
+
+.format-btn.mp3.active {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.4);
+    color: #f59e0b;
+}
+
+.cancel-btn {
+    padding: 10px 24px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 6px;
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cancel-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.cancel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.confirm-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    border-radius: 6px;
+    color: #22c55e;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.confirm-action-btn:hover:not(:disabled) {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.1);
+}
+
+.confirm-action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.saving-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(34, 197, 94, 0.3);
+    border-top-color: #22c55e;
+    border-radius: 50%;
+    animation: ve-spin 0.8s linear infinite;
+}
+
+@keyframes ve-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Progress Bar Styles */
+.render-progress-container {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.render-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.render-progress-text {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+}
+
+/* Custom Select Specific for TextPropertiesPanel */
+.ve-custom-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 2;
+    transition: all 0.2s ease;
+}
+
+.ve-custom-select-trigger:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.ve-custom-select-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: hidden;
+    padding: 6px;
+}
+
+.ve-custom-select-scroll {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.ve-custom-select-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.ve-custom-select-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.ve-custom-select-group {
+    margin-bottom: 8px;
+}
+
+.ve-custom-select-group:last-child {
+    margin-bottom: 0;
+}
+
+.ve-custom-select-group-label {
+    font-size: 0.6rem;
+    color: #666;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    margin-bottom: 2px;
+}
+
+.ve-custom-select-item {
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: #ccc;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.ve-custom-select-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.ve-custom-select-item.active {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+/* Transform Buttons */
+.ve-transform-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #aaa;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ve-transform-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ve-transform-btn.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Info Button */
+.ve-info-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 6px;
+    color: #a855f7;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ve-info-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+}
+
+/* Info Modal Content */
+.ve-info-modal-content {
+    background: rgba(20, 20, 25, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    width: 480px;
+    max-width: 90vw;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    animation: veModalScale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ve-info-modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.ve-info-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ve-info-modal-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.ve-info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ve-info-section-title {
+    font-size: 0.8rem;
+    color: #a855f7;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.ve-shortcut-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.ve-shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ve-key {
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ve-desc {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+@keyframes veModalScale {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

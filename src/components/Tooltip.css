@@ -1,0 +1,22 @@
+.tooltip-trigger {
+    display: contents;
+}
+
+.tooltip-content {
+    position: fixed;
+    z-index: 999999;
+    pointer-events: none;
+    background-color: rgba(15, 15, 15, 0.96);
+    /* Keeping original color to match existing look, or could use var(--bg-tertiary) */
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    will-change: transform, top, left;
+    /* Performance optimization */
+}

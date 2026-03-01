@@ -1,0 +1,326 @@
+/* FolderPickerModal.css - Modular styles for Folder Picker Modal */
+
+/* Overlay */
+.folder-picker-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+/* Modal Content */
+.folder-picker-modal {
+    width: 500px;
+    height: 600px;
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+/* Header */
+.folder-picker-header {
+    padding: 20px 24px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.folder-picker-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.folder-picker-title {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 340px;
+}
+
+.folder-picker-close-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.folder-picker-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+/* Navigation Bar */
+.folder-picker-navbar {
+    padding: 12px 20px;
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.folder-picker-nav-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+/* Yellow Theme for Back Arrow */
+.folder-picker-nav-btn.nav-back {
+    background: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.folder-picker-nav-btn.nav-back:hover:not(:disabled) {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Purple Theme for Home */
+.folder-picker-nav-btn.nav-home {
+    background: rgba(168, 85, 247, 0.08);
+    border-color: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+}
+
+.folder-picker-nav-btn.nav-home:hover:not(:disabled) {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.3);
+    transform: translateY(-1px);
+}
+
+.folder-picker-nav-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.folder-picker-path {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+    text-align: left;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* Folder List */
+.folder-picker-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Custom Scrollbar */
+.folder-picker-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.folder-picker-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.folder-picker-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.folder-picker-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.folder-picker-folders {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.folder-picker-empty {
+    padding: 40px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+}
+
+/* Folder Item (History Panel Style) */
+.folder-picker-item {
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.folder-picker-item:hover {
+    background-color: #252525;
+    border-color: #3a3a3a;
+    transform: translateY(-1px);
+    color: white;
+}
+
+.folder-picker-item-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.folder-picker-footer {
+    padding: 20px 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Cancel Button (Red Style) */
+.folder-picker-cancel-btn {
+    padding: 10px 24px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 6px;
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.folder-picker-cancel-btn:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Action Buttons (Move/Copy Here) */
+.folder-picker-action-btn {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Copy Style (Yellow) */
+.folder-picker-action-btn.copy {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.folder-picker-action-btn.copy:hover:not(:disabled) {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+}
+
+/* Move Style (Blue) */
+.folder-picker-action-btn.move {
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.folder-picker-action-btn.move:hover:not(:disabled) {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.folder-picker-action-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+    .folder-picker-modal {
+        width: 95%;
+        max-width: 500px;
+        height: 80vh;
+    }
+
+    .folder-picker-footer {
+        flex-direction: column;
+    }
+
+    .folder-picker-action-btn,
+    .folder-picker-cancel-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
