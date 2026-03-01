@@ -75,6 +75,36 @@ Uygulamayı derlemeden doğrudan denemek isterseniz, [setups](setups/) klasörü
 | **MediaBrowser_Setup.exe** | `251644165264B21E689DF80C874E7DC14C61F59063BF630DC852D58B24428B55` |
 | **MediaBrowser_Setup.msi** | `19D8BCE1943739894EA963DC67C70010F82158058F6ECBB8815C193DA8D56447` |
 
+## 🛡️ Güvenlik Şeffaflığı (VirusTotal Taraması)
+
+Tüm dağıtılan ikili dosyalar release sırasında VirusTotal'e manuel olarak yüklenmiş ve taranmıştır.
+
+| Dosya | Tespit Sonucu | Notlar |
+|------|------------------|-------|
+| MediaBrowser_Portable.exe | 1 / 72 | Tekil ML-tabanlı tespit (Trapmine) |
+| MediaBrowser_Setup.exe | 0 / 72 | Temiz |
+| MediaBrowser_Setup.msi | 0 / 72 | Temiz |
+
+### Detaylar
+
+- Tüm ana antivirüs sağlayıcıları (Microsoft, Kaspersky, BitDefender, ESET, Avast, Malwarebytes, Sophos, vb.) **Tespit Edilmedi** (Undetected) raporu vermiştir.
+- Portable sürümdeki tekil tespit, otomatik makine öğrenimi motorundan (Trapmine ML) kaynaklanmaktadır.
+- ML-tabanlı tespitler, yeni oluşturulmuş veya dijital olarak imzalanmamış uygulamalarda yaygındır ve genellikle "false positive" (hatalı pozitif) durumudur.
+- Proje tamamen açık kaynaklıdır ve bu dosyaları oluşturmak için kullanılan kaynak kodları bu depoda mevcuttur.
+
+### Tam Raporlar
+
+- Portable:  
+  https://www.virustotal.com/gui/file/efb2df0c2f8cd073e70af5505c63fdb20f60e34c4d212e4a3193ec625dc4eefc?nocache=1
+
+- Setup (.exe):  
+  https://www.virustotal.com/gui/file-analysis/NGEzZDNjZmM4YzgxMjRlMjk3YjM5MmYzMjljYWYyZGM6MTc3MjM3NTAxMQ==
+
+- MSI Kurulum Paketi:  
+  https://www.virustotal.com/gui/file-analysis/MDg2YTI2ZjE2ZjBkYWQwNjcyYzI0NDE5ZDQyNTUyYmQ6MTc3MjM3NTE2OA==
+
+> Not: Uygulama henüz dijital bir kod imzalama sertifikasına sahip olmadığı için Windows SmartScreen uyarıları görünebilir. Bu, ticari imza sertifikası olmayan bağımsız/açık kaynaklı projeler için beklenen bir durumdur.
+
 ---
 
 ### Yerel Geliştirme
