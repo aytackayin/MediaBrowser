@@ -66,6 +66,15 @@ If you just want to try the application without building it, you can download th
 *   [**Setup Installer (.exe)**](setups/MediaBrowser_Setup.exe): Standard Windows installer.
 *   [**MSI Installer (.msi)**](setups/MediaBrowser_Setup.msi): Enterprise/Standard Windows installer package.
 
+### 🔐 SHA256 Checksum
+You can verify the integrity of the downloaded files using the following SHA256 hashes:
+
+| File | SHA256 Checksum |
+| :--- | :--- |
+| **MediaBrowser_Portable.exe** | `EFB2DF0C2F8CD073E70AF5505C63FDB20F60E34C4D212E4A3193EC625DC4EEFC` |
+| **MediaBrowser_Setup.exe** | `251644165264B21E689DF80C874E7DC14C61F59063BF630DC852D58B24428B55` |
+| **MediaBrowser_Setup.msi** | `19D8BCE1943739894EA963DC67C70010F82158058F6ECBB8815C193DA8D56447` |
+
 ---
 
 ### Local Development

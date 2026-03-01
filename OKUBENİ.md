@@ -66,6 +66,15 @@ Uygulamayı derlemeden doğrudan denemek isterseniz, [setups](setups/) klasörü
 *   [**Standart Kurulum (.exe)**](setups/MediaBrowser_Setup.exe): Standart Windows yükleyicisidir.
 *   [**MSI Paketi (.msi)**](setups/MediaBrowser_Setup.msi): Kurumsal veya standart Windows yükleyici paketidir.
 
+### 🔐 SHA256 Checksum
+İndirdiğiniz dosyaların güvenliğini ve bütünlüğünü aşağıdaki SHA256 anahtarlarıyla kontrol edebilirsiniz:
+
+| Dosya Adı | SHA256 Karşılaştırma Özeti (Hash) |
+| :--- | :--- |
+| **MediaBrowser_Portable.exe** | `EFB2DF0C2F8CD073E70AF5505C63FDB20F60E34C4D212E4A3193EC625DC4EEFC` |
+| **MediaBrowser_Setup.exe** | `251644165264B21E689DF80C874E7DC14C61F59063BF630DC852D58B24428B55` |
+| **MediaBrowser_Setup.msi** | `19D8BCE1943739894EA963DC67C70010F82158058F6ECBB8815C193DA8D56447` |
+
 ---
 
 ### Yerel Geliştirme
